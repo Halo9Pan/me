@@ -1,4 +1,0 @@
-about-cv
-========
-
-Personal CV
