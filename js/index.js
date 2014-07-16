@@ -16,11 +16,10 @@ $(document).ready(function () {
 	});
 
 	parallax.add($("#index"))
-			.add($("#title"));
+			.add($("#contact"));
   $("div[id^=project_]").each(function(){
     parallax.add($(this));
   });
-  console.log(parallax);
 
 	parallax.background = $("body");
 
@@ -32,8 +31,12 @@ $(document).ready(function () {
 
 
 	parallax.index.onload=function(){
-		setBottom("title", "Title");
+		setBottom("contact", "Contact me");
 	};
+	parallax.contact.onload=function(){
+		setBottom("project_9", "Projects");
+	};
+  addCategory("project_");
 	//Setting up page navigation
   /*
 	parallax.index.onload=function(){
@@ -56,6 +59,29 @@ $(document).ready(function () {
 		setRight("index","Home");
 	};
   */
+  
+  function addCategory(category){
+    for (var key in parallax) {
+      if (parallax.hasOwnProperty(key)) {
+        if(key.indexOf(category) != -1){
+          var index = key.substring(category.length);
+          index = parseInt(index);
+          var next = category + (index + 1);
+          if(parallax[next] != undefined){
+            parallax[key].onload=function(){
+              setBottom(next, "");
+            };
+          }
+          var previous = category + (index - 1);
+          if(parallax[previous] != undefined){
+            parallax[key].onload=function(){
+              setTop(previous,"");
+            };
+          }
+        }
+      }
+    }
+  }
 
 	//Sets the correct triggers for the arrows, plus arrow keys
 	function setRight(page, text){
