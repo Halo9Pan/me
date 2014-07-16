@@ -2,6 +2,16 @@ body{
 	overflow:hidden;
 }
 
+h1{
+  font-size:8em;
+}
+h2{
+  font-size:4em;
+}
+h3{
+  font-size:3em;
+}
+
 .background{
 	background-image: url(../assets/dark_geometric2.png);
 }
@@ -14,6 +24,25 @@ body{
 .page{
 	width:100%;
 	height:100%;
+}
+
+.content{
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 25%;
+}
+
+.center{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.name{
+  color:white;
+}
+.contact{
+  color:blue;
 }
 
 #logo{
@@ -90,4 +119,12 @@ p{
 #leftControl{
 	left:0px;
 	top:40%;
+}
+
+#bottomControl{
+
+}
+
+#bottomControl div{
+  text-align: center;
 }

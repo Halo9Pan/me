@@ -17,7 +17,7 @@ $(document).ready(function () {
 
 	parallax.add($("#index"))
 			.add($("#title"));
-  $("div[id^=p_]").each(function(){
+  $("div[id^=project_]").each(function(){
     parallax.add($(this));
   });
   console.log(parallax);
