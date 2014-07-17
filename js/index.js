@@ -20,6 +20,9 @@ $(document).ready(function () {
   $("div[id^=project_]").each(function(){
     parallax.add($(this));
   });
+  $("div[id^=skill_]").each(function(){
+    parallax.add($(this));
+  });
 
 	parallax.background = $("body");
 
@@ -34,7 +37,11 @@ $(document).ready(function () {
 		setBottom("contact", "Contact me");
 	};
 	parallax.contact.onload=function(){
-		setBottom("project_9", "Projects");
+		setBottom("skill_4", "Skills");
+	};
+  addCategory("skill_");
+	parallax.skill_1.onload=function(){
+		setBottom("project_11", "Projects");
 	};
   addCategory("project_");
 	//Setting up page navigation
@@ -66,18 +73,16 @@ $(document).ready(function () {
         if(key.indexOf(category) != -1){
           var index = key.substring(category.length);
           index = parseInt(index);
-          var next = category + (index + 1);
-          if(parallax[next] != undefined){
-            parallax[key].onload=function(){
-              setBottom(next, "");
+          var next = category + (index - 1);
+          var previous = category + (index + 1);
+          (function(k, n, p) {
+            parallax[k].onload=function(){
+              console.log(k+"->"+n);
+              console.log(k+"<-"+p);
+              setTop(p,"Previous");
+              setBottom(n, "Next");
             };
-          }
-          var previous = category + (index - 1);
-          if(parallax[previous] != undefined){
-            parallax[key].onload=function(){
-              setTop(previous,"");
-            };
-          }
+          })(key, next, previous);
         }
       }
     }
@@ -85,6 +90,9 @@ $(document).ready(function () {
 
 	//Sets the correct triggers for the arrows, plus arrow keys
 	function setRight(page, text){
+    if(parallax[page] == undefined){
+      return;
+    }
 		$("#rightText").text(text);
 		$("#rightControl").show().unbind('click').click(function(){
 			parallax[page].right();
@@ -95,6 +103,9 @@ $(document).ready(function () {
 	}
 
 	function setLeft(page, text){
+    if(parallax[page] == undefined){
+      return;
+    }
 		$("#leftText").text(text);
 		$("#leftControl").show().unbind('click').click(function(){
 			parallax[page].left();
@@ -105,6 +116,9 @@ $(document).ready(function () {
 	}
 
 	function setTop(page, text){
+    if(parallax[page] == undefined){
+      return;
+    }
 		$("#topText").text(text);
 		$("#topControl").show().unbind('click').click(function(){
 			parallax[page].top();
@@ -115,6 +129,9 @@ $(document).ready(function () {
 	}
 
 	function setBottom(page, text){
+    if(parallax[page] == undefined){
+      return;
+    }
 		$("#bottomText").text(text);
 		$("#bottomControl").show().unbind('click').click(function(){
 			parallax[page].bottom();

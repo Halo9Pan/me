@@ -27,7 +27,7 @@ h3{
 }
 
 .content{
-  width: 50%;
+  width: 80%;
   margin-left: auto;
   margin-right: auto;
   margin-top: 25%;
@@ -39,11 +39,41 @@ h3{
 }
 
 .name{
-  color:white;
+  color:hsla(240, 80%, 100%, 0.8);
 }
 .contact{
-  color:blue;
+  color:hsla(240, 80%, 80%, 0.8);
 }
+
+.level{
+  color:hsla(40, 100%, 50%, 0.6);
+  font-size:1.6em;
+}
+.level mark{
+  margin-right:4em;
+}
+
+.skill{
+  color:hsla(222, 81%, 37%, 0.8);
+  font-size:3.2em;
+}
+
+.time{
+  color:hsla(40, 100%, 50%, 0.6);
+  font-size:1.6em;
+}
+
+.project{
+  color:hsla(222, 81%, 37%, 0.8);
+  font-size:3.2em;
+}
+.project a{
+  color:hsla(222, 81%, 37%, 1);
+}
+.project strong{
+  color:hsla(222, 56%, 63%, 1);
+}
+
 
 #logo{
 	left:10px;
